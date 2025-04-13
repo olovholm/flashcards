@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct FlashItemRow: View {
-    let flashcardModel: FlashcardModel
+    let flashCardModel: FlashcardModel
     
     let imageSize: CGFloat = 60
     
@@ -16,10 +16,10 @@ struct FlashItemRow: View {
     var body: some View {
         HStack {
             VStack(alignment: .leading, spacing: 10) {
-                Text(flashcardModel.topic)
+                Text(flashCardModel.topic)
                     .font(.body)
                     .fontWeight(.semibold)
-                Text(flashcardModel.topicDescription)
+                Text(flashCardModel.topicDescription)
                     .font(.caption)
                     .fontWeight(.light)
                 
@@ -27,7 +27,7 @@ struct FlashItemRow: View {
             
             Spacer()
             
-            Image(flashcardModel.topicImageName)
+            Image(flashCardModel.topicImageName)
                 .resizable()
                 .scaledToFill()
                 .frame(width: imageSize, height: imageSize)
@@ -38,7 +38,7 @@ struct FlashItemRow: View {
 
 #Preview {
     FlashItemRow(
-        flashcardModel: .init(
+        flashCardModel: .init(
             topic: "Countries",
             topicDescription: "Exlore geography! ",
             topicImageName: .bigBen,
