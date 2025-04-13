@@ -6,13 +6,14 @@
 //
 
 import SwiftUI
+import Foundation
 
-struct DeviceSupport: View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+extension UIDevice {
+    static var isPad: Bool {
+        UIDevice.current.userInterfaceIdiom == .pad
     }
-}
-
-#Preview {
-    DeviceSupport()
+    
+    static var isPhone: Bool {
+        UIDevice.current.userInterfaceIdiom == .phone
+    }
 }
