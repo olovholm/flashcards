@@ -8,11 +8,27 @@
 import SwiftUI
 
 struct TwoSidedBackgroundView: View {
+    let frontColor: Color
+    let backColor: Color
+    let opacity: CGFloat
+    let isFrontUp: Bool
+    
+    var color : Color {
+        isFrontUp ? frontColor : backColor
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        color
+            .opacity(opacity)
+            .ignoresSafeArea()
     }
 }
 
 #Preview {
-    TwoSidedBackgroundView()
+    TwoSidedBackgroundView(
+        frontColor: .blue,
+        backColor: .red,
+        opacity: 0.3,
+        isFrontUp: false
+    )
 }
