@@ -22,16 +22,28 @@ struct HeaderView: View {
         CGFloat(questionNumber) / CGFloat(numberOfQuestions)
     }
     
+    var topicFont : Font {
+        UIDevice.isPad ? .largeTitle : .body
+    }
+    
+    var numberOfQuestionsText : String {
+        "\(questionNumber) out of \(numberOfQuestions)"
+    }
+    
+    var numberOfQuestionsFont: Font {
+        UIDevice.isPad ? .largeTitle : .caption
+    }
+    
     var body: some View {
         VStack(spacing: 5) {
             // First row
             HStack {
                 Text(topic)
-                    .font(.body)
+                    .font(topicFont)
                 
                 Spacer()
-                Text("\(questionNumber) out of \(numberOfQuestions)")
-                    .font(.caption)
+                Text(numberOfQuestionsText)
+                    .font(numberOfQuestionsFont)
             }
             .fontWeight(.bold)
             HStack {

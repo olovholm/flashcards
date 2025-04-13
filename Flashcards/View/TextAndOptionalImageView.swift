@@ -17,7 +17,7 @@ struct TextAndOptionalImageView: View {
     var body: some View {
         GeometryReader { geometery in
             VStack {
-                Text(text)
+                Text(.init(text))
                     .font(.title2)
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
@@ -28,8 +28,9 @@ struct TextAndOptionalImageView: View {
                     Image(imageName)
                         .resizable()
                         .scaledToFill()
-                        .frame(maxHeight:
-                                geometery.size.height * 0.7)
+                        .frame(maxWidth: geometery.size.width * 0.7,
+                                maxHeight: geometery.size.height * 0.9
+                               )
                         .clipShape(.rect(cornerRadius: 10))
                 }
                 
